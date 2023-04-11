@@ -57,10 +57,12 @@
 						<div class="row mb-3">
 							<div class="col">
 								<div class="input-group">
-									<input type="text" class="form-control" placeholder="Loại Người Dùng" id="searchName">
-									<div class="input-group-prepend">
-										<span class="input-group-text" id="btnTimNV"><i class="fa fa-search"></i></span>
-									</div>
+									<select class="form-control" id="findUser">
+										<option value="">Chọn đối tượng</option>
+										<option value="student">Sinh viên</option>
+										<option value="employee">Nhân viên</option>
+										<option value="customer">Khách hàng</option>
+									</select>
 								</div>
 							</div>
 						</div>
@@ -68,7 +70,10 @@
 							<thead class="text-primary">
 								<tr>
 									<th>Mã</th>
-									<th>Họ và tên</th>
+									<th><span class="mr-1">Họ và tên</span>
+										<i class="fa fa-arrow-up" id="sortIncrease" style="cursor: pointer;"></i>
+										<i class="fa fa-arrow-down" id="sortReduce" style="cursor: pointer;"></i>
+									</th>
 									<th>Địa Chỉ</th>
 									<th>Email</th>
 									<th>Khác</th>									
@@ -111,10 +116,12 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 
-					<form role="form">
+					<form role="form" id="mainForm">
 						<div class="form-group">
 							<div class="input-group">
-								
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-user"></i></span>
+								</div>
 								<select class="form-control" id="userType"  >
 									<option value="student">Học Viên</option>
 									<option value="employee" >Nhân Viên</option>
@@ -124,17 +131,21 @@
 						</div>
 						<div class="form-group">
 							<div class="input-group">
-								
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-id-card"></i></span>
+								</div>
 								<input type="text"  id="code" class="form-control input-sm"
 									placeholder="Mã Người Dùng">
 							</div>
-
-							<span class="sp-thongbao" id="tbcode"></span>
+							<div class ="text    text-danger"id="tbErrorCode"></div>	
+							<div class="sp-thongbao" id="tbcode"></div>
 						</div>
 
 						<div class="form-group">
 							<div class="input-group">
-								
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-address-book"></i></span>
+								</div>
 								<input type="name" name="name" id="name" class="form-control input-sm"
 									placeholder="Họ và tên">
 							</div>
@@ -143,7 +154,9 @@
 
 						<div class="form-group">
 							<div class="input-group">
-								
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-envelope"></i></span>
+								</div>
 								<input type="email" name="email" id="email" class="form-control input-sm"
 									placeholder="Email">
 							</div>
@@ -153,7 +166,9 @@
 
 						<div class="form-group">
 							<div class="input-group">
-								
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+								</div>
 								<input type="text"  id="address" class="form-control input-sm"
 									placeholder="Địa Chỉ">
 							</div>

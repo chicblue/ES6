@@ -4,16 +4,23 @@ export let renderModal = (person = 'student') => {
         case 'student':
             stringHTML = `
             <div class="form-group">
-           
+            <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calculator"
+                        aria-hidden="true"></i></span>
+            </div>
                     <input type="number" id="math" class="form-control input-sm"
                         placeholder="Toán">
                 </div>
                 <span class="sp-thongbao" id="tbMath"></span>
             </div>
-
+           
             <div class="form-group">
                 <div class="input-group">
-                 
+                
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-cogs" aria-hidden="true"></i></span>
+                </div>
                     <input type="number"  id="physics" class="form-control input-sm" placeholder="Lý">
                 </div>
                 <span class="sp-thongbao" id="tbphysic"></span>
@@ -21,6 +28,9 @@ export let renderModal = (person = 'student') => {
 
             <div class="form-group">
                 <div class="input-group">
+                <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-flask" aria-hidden="true"></i></span>
+                    </div>
                     <input type="number"  id="chemistry" class="form-control input-sm"
                         placeholder="Hóa">
                 </div>
@@ -32,6 +42,9 @@ export let renderModal = (person = 'student') => {
             stringHTML = `
             <div class="form-group">
                 <div class="input-group">
+                <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
+                    </div>
                     <input type="number"  id="salaryPDay" class="form-control input-sm"
                         placeholder="Lương theo ngày">
                 </div>
@@ -40,6 +53,10 @@ export let renderModal = (person = 'student') => {
 
             <div class="form-group">
                 <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar"
+                        aria-hidden="true"></i></span>
+            </div>
                     <input type="number"  id="workday" class="form-control input-sm"
                         placeholder="Số ngày làm việc">
                 </div>
@@ -51,7 +68,9 @@ export let renderModal = (person = 'student') => {
             stringHTML = `
             <div class="form-group">
                 <div class="input-group">
-                 
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-building"></i></span>
+            </div>
                     <input type="text"  id="company" class="form-control input-sm"
                         placeholder="Tên Công ty">
                 </div>
@@ -61,7 +80,9 @@ export let renderModal = (person = 'student') => {
 
             <div class="form-group">
                 <div class="input-group">
-                
+                <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-money"></i></span>
+                    </div>
                     <input type="number"  id="billValue" class="form-control input-sm"
                         placeholder="Trị giá hóa đơn">
                 </div>
@@ -71,7 +92,9 @@ export let renderModal = (person = 'student') => {
 
             <div class="form-group">
                 <div class="input-group">
-                    
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-sticky-note"></i></span>
+            </div>
                     <input type="text"  id="review" class="form-control input-sm"
                         placeholder="Đánh giá">
                 </div>
