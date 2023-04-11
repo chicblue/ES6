@@ -1,4 +1,4 @@
-export let renderModal = (person = 'student') => {
+export let renderModal = (person ='student' ) => {
     let stringHTML;
     switch (person) {
         case 'student':
@@ -12,6 +12,8 @@ export let renderModal = (person = 'student') => {
                     <input type="number" id="math" class="form-control input-sm"
                         placeholder="Toán">
                 </div>
+                <div class ="thong_bao text    text-danger"id="tbErrorMath"></div>
+                <div class ="thong_bao text    text-danger"id="tbErrorNumberMath"></div>	
                 <span class="sp-thongbao" id="tbMath"></span>
             </div>
            
@@ -23,6 +25,8 @@ export let renderModal = (person = 'student') => {
                 </div>
                     <input type="number"  id="physics" class="form-control input-sm" placeholder="Lý">
                 </div>
+                <div class ="thong_bao text    text-danger"id="tbErrorPhysic"></div>
+                <div class ="thong_bao text    text-danger"id="tbErrorNumberPhysic"></div>	
                 <span class="sp-thongbao" id="tbphysic"></span>
             </div>
 
@@ -34,6 +38,8 @@ export let renderModal = (person = 'student') => {
                     <input type="number"  id="chemistry" class="form-control input-sm"
                         placeholder="Hóa">
                 </div>
+                <div class ="thong_bao text    text-danger"id="tbErrorChemistry"></div>	
+                <div class ="thong_bao text    text-danger"id="tbErrorNumberChemistry"></div>	
                 <span class="sp-thongbao" id="tbChemistry"></span>
             </div>
             `;
@@ -48,6 +54,8 @@ export let renderModal = (person = 'student') => {
                     <input type="number"  id="salaryPDay" class="form-control input-sm"
                         placeholder="Lương theo ngày">
                 </div>
+                <div class ="thong_bao text    text-danger"id="tbErrorSalaryPDay"></div>	
+                <div class ="thong_bao text    text-danger"id="tbErrorNumBerSalaryPDay"></div>
                 <span class="sp-thongbao" id="salaryPDay"></span>
             </div>
 
@@ -60,6 +68,8 @@ export let renderModal = (person = 'student') => {
                     <input type="number"  id="workday" class="form-control input-sm"
                         placeholder="Số ngày làm việc">
                 </div>
+                <div class ="thong_bao text    text-danger"id="tbErrorWorkday"></div>
+                <div class ="thong_bao text    text-danger"id="tbErrorNumberWorkday"></div>
                 <span class="sp-thongbao" id="tbworkday"></span>
             </div>
             `;
@@ -74,7 +84,8 @@ export let renderModal = (person = 'student') => {
                     <input type="text"  id="company" class="form-control input-sm"
                         placeholder="Tên Công ty">
                 </div>
-
+                <div class ="thong_bao text    text-danger"id="tbErrorCompany"></div>
+                <div class ="thong_bao text    text-danger"id="tbErrorLetterCompany"></div>
                 <span class="sp-thongbao" id="tbcompany"></span>
             </div>
 
@@ -86,7 +97,8 @@ export let renderModal = (person = 'student') => {
                     <input type="number"  id="billValue" class="form-control input-sm"
                         placeholder="Trị giá hóa đơn">
                 </div>
-
+                <div class ="thong_bao text    text-danger"id="tbErrorbillValue"></div>
+                <div class ="thong_bao text    text-danger"id="tbErrorNumberBillvalue"></div>
                 <span class="sp-thongbao" id="tbbillValue"></span>
             </div>
 
@@ -98,7 +110,7 @@ export let renderModal = (person = 'student') => {
                     <input type="text"  id="review" class="form-control input-sm"
                         placeholder="Đánh giá">
                 </div>
-
+                <div class ="thong_bao text    text-danger"id="tbErrorReview"></div>
                 <span class="sp-thongbao" id="tbreview"></span>
             </div>
             `;
