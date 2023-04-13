@@ -1,6 +1,6 @@
 import { Employee, Student, Customer } from "../models/Person.js";
 import { listPerson } from "../models/ListPerSon.js"
-import { renderModal } from "../util/render.js"
+import { renderModal, renderModalUpdate } from "../util/render.js"
 import { Valadition } from "../models/Validation.js";
 
 let list = new listPerson();
@@ -16,7 +16,8 @@ document.querySelector('#btnThem').onclick = () => {
 }
 document.querySelector('#btnDong').onclick = () => {
     document.querySelector('#mainForm').reset();
-    document.querySelectorAll('.modal-body .thong_bao').reset();
+   delete document.querySelectorAll('.modal-body .thong_bao') ;
+   
 }
 document.querySelector('#userType').onchange = () => {
     let change = document.querySelector('#userType').value;
@@ -90,6 +91,7 @@ document.querySelector('#btnThemNV').onclick = () => {
             &val.checkEmty(employee.address,'tbErrorAddress')
             &val.checkEmty(employee.salaryPDay,'tbErrorSalaryPDay')
             &val.checkEmty(employee.workday,'tbErrorWorkday')
+            
             valid = valid & val.checkLength(employee.code,'tbErrorLengthCode','Mã',1,4)
             &val.checkLetter(employee.name,'tbErrorLetterName')
             &val.checkemail(employee.email,'tbErrorDefineEmail')
@@ -120,7 +122,7 @@ document.querySelector('#btnThemNV').onclick = () => {
             &val.checkEmty(customer.email,'tbErrorEmail')
             &val.checkEmty(customer.address,'tbErrorAddress')
             &val.checkEmty(customer.company,'tbErrorCompany')
-            &val.checkEmty(customer.billValue,'tbErrorBillValue')
+            &val.checkEmty(customer.billValue,'tbErrorbillValue')
             &val.checkEmty(customer.review,'tbErrorReview');
             valid = valid & val.checkLength(customer.code,'tbErrorLengthCode','Mã',1,4)
             &val.checkLetter(customer.name,'tbErrorLetterName')
@@ -153,14 +155,14 @@ window.deleteUser = (code) => {
 }
 // -------------sửa người dùng--------------
 window.editUser = (code) => {
- 
+    document.querySelector('#btnThem').click();
     let editUser = list.editUser(code);
     switch (editUser.class) {
-        case 'student': renderModal(editUser.class);
+        case 'student': renderModalUpdate(editUser.class);
             break;
-        case 'employee': renderModal(editUser.class);
+        case 'employee':renderModalUpdate(editUser.class);
             break;
-        default: renderModal(editUser.class);
+        default: renderModalUpdate(editUser.class);
 
     }
     if (editUser) {
@@ -175,7 +177,7 @@ window.editUser = (code) => {
         input.disabled = false;
     });
     document.querySelector('#code').disabled = 'true';
-    document.querySelector('#userType').disabled = 'true';
+    // document.querySelector('#userType').disabled = 'true';
 
     document.querySelector('#btnThemNV').style.display = 'none';
     document.querySelector('#btnCapNhat').style.display = 'inline';
@@ -184,7 +186,7 @@ window.editUser = (code) => {
 
 // ------------cập nhật người dùng-------------
 document.querySelector('#btnCapNhat').onclick = () => {
-    let type = document.querySelector('#userType').value;
+    let type = document.getElementById('Type').value;
     switch (type) {
         case 'student': {
             let newStudent = new Student();
@@ -203,11 +205,11 @@ document.querySelector('#btnCapNhat').onclick = () => {
             &val.checkEmty(newStudent.physics,'tbErrorPhysic')
             &val.checkEmty(newStudent.chemistry,'tbErrorChemistry');
             valid = valid &
-            val.checkLetter(newStudent.name,'tbErrorLetterName')
-            &val.checkemail(newStudent.email,'tbErrorDefineEmail')
-            &val.checkNumber(newStudent.math,'tbErrorNumberMath',0,10)
-            &val.checkNumber(newStudent.physics,'tbErrorNumberPhysic',0,10)
-            &val.checkNumber(newStudent.chemistry,'tbErrorNumberChemistry',0,10);
+            val.checkLetter(newStudent.name,'tbErrorLetterName');
+            valid =valid &val.checkemail(newStudent.email,'tbErrorDefineEmail');
+            valid=valid&val.checkNumber(newStudent.math,'tbErrorNumberMath',0,10);
+            valid = valid &val.checkNumber(newStudent.physics,'tbErrorNumberPhysic',0,10);
+            valid = valid &val.checkNumber(newStudent.chemistry,'tbErrorNumberChemistry',0,10);
             
             if(!valid){
                 return ;
@@ -229,10 +231,10 @@ document.querySelector('#btnCapNhat').onclick = () => {
             &val.checkEmty(newEmployee.address,'tbErrorAddress')
             &val.checkEmty(newEmployee.salaryPDay,'tbErrorSalaryPDay')
             &val.checkEmty(newEmployee.workday,'tbErrorWorkday')
-            valid = valid & val.checkLetter(newEmployee.name,'tbErrorLetterName')
-            &val.checkemail(newEmployee.email,'tbErrorDefineEmail')
-            &val.checkNumberE(newEmployee.salaryPDay,'tbErrorNumBerSalaryPDay')
-            &val.checkNumberE(newEmployee.workday,'tbErrorNumberWorkday');
+            valid = valid & val.checkLetter(newEmployee.name,'tbErrorLetterName');
+            valid = valid &val.checkemail(newEmployee.email,'tbErrorDefineEmail');
+            valid = valid &val.checkNumberE(newEmployee.salaryPDay,'tbErrorNumBerSalaryPDay');
+            valid = valid  &val.checkNumberE(newEmployee.workday,'tbErrorNumberWorkday');
 
 
             if(!valid){
@@ -258,10 +260,10 @@ document.querySelector('#btnCapNhat').onclick = () => {
             &val.checkEmty(newCustomer.billValue,'tbErrorBillValue')
             &val.checkEmty(newCustomer.review,'tbErrorReview');
             valid = valid 
-            &val.checkLetter(newCustomer.name,'tbErrorLetterName')
-            &val.checkemail(newCustomer.email,'tbErrorDefineEmail')
-            &val.checkLetter(newCustomer.company,'tbErrorLetterCompany')
-            &val.checkNumberE(newCustomer.billValue,'tbErrorNumberBillvalue')
+            &val.checkLetter(newCustomer.name,'tbErrorLetterName');
+            valid = valid &val.checkemail(newCustomer.email,'tbErrorDefineEmail');
+            valid = valid&val.checkLetter(newCustomer.company,'tbErrorLetterCompany');
+            valid = valid  &val.checkNumberE(newCustomer.billValue,'tbErrorNumberBillValue')
             ;
 
             if(!valid){
@@ -273,11 +275,10 @@ document.querySelector('#btnCapNhat').onclick = () => {
         } break;
     }
     document.querySelector('#mainForm').reset();
-    document.querySelectorAll('.thong_bao').reset();
 }
 // ------------ chi tiết người dùng-----------------
 window.detailUser = (code) => {
-   
+    document.querySelector('#btnThem').click();
     let editUser = list.editUser(code);
     switch (editUser.class) {
         case 'student': renderModal(editUser.class);

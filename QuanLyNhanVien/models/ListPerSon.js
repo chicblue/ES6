@@ -39,11 +39,9 @@ export class listPerson {
                 <td>${userAdd.email}</td>
                 <td>${string}</td>
                 <td>
-                    <button class="btn btn-primary mx-2" data-toggle="modal"
-                    data-target="#myModal"onclick="detailUser('${userAdd.code}')"><i class="fa-solid fa-circle-info"></i></button>
+                    <button class="btn btn-primary mx-2" onclick="detailUser('${userAdd.code}')"><i class="fa-solid fa-circle-info"></i></button>
                     <button class ="btn btn-danger" onclick="deleteUser('${userAdd.code}')">X</button>
-                    <button class ="btn btn-primary mx-2" data-toggle="modal"
-                    data-target="#myModal"onclick="editUser('${userAdd.code}')"><i class="fa-regular fa-pen-to-square"></i></button>
+                    <button class ="btn btn-primary mx-2" onclick="editUser('${userAdd.code}')"><i class="fa-regular fa-pen-to-square"></i></button>
                 </td>
 
             </tr>
