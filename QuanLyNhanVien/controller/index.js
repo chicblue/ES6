@@ -177,7 +177,8 @@ window.editUser = (code) => {
         input.disabled = false;
     });
     document.querySelector('#code').disabled = 'true';
-    // document.querySelector('#userType').disabled = 'true';
+    document.querySelector('#userType').closest('.form-group').style.visibility = 'hidden';
+
 
     document.querySelector('#btnThemNV').style.display = 'none';
     document.querySelector('#btnCapNhat').style.display = 'inline';
@@ -299,6 +300,7 @@ window.detailUser = (code) => {
     document.querySelectorAll('#mainForm input,#mainForm select').forEach((input) => {
         input.disabled = 'true';
     });
+    document.querySelector('#userType').closest('.form-group').style.visibility = 'hidden';2
     document.querySelector('#btnThemNV').style.display = 'none';
     document.querySelector('#btnCapNhat').style.display = 'none';
 }
